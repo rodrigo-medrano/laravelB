@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Models\Category;
 use App\Models\Product;
@@ -31,26 +32,7 @@ Route::prefix('admin')->group(function(){
     });
 });
 
-Route::prefix('products')->group(function(){
-    Route::get('/',function(){
-        $products=Product::all();
-        return $products;
-    });
-    Route::get('create',function(){
-        return 'Formulario Crear producto';
-    });
-    Route::post('/',function(){
-        return 'Almacenar producto';
-    });
-    Route::get('/{id}',[ProductController::class,'show']);
-    Route::get('{id}/edit',function(){
-        return 'Formulario Editar producto';
-    });
-    Route::put('{id}',function(){
-        return 'Actualizar producto';
-    });
-    Route::delete('{id}',[ProductController::class,'destroy']);
-});
+
 
 Route::prefix('ejercicios')->group(function(){
     Route::get('1',function(){
@@ -121,4 +103,5 @@ Route::prefix('ejercicios')->group(function(){
     });
 });
 
+Route::resource('categories',CategoryController::class);
 
