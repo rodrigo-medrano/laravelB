@@ -18,17 +18,17 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         //User::factory(10)->create();
-        $this->call([
+        /*$this->call([
             CategorySeeder::class,
             ProductSeeder::class,
             //GenreSeeder::class,
             //MovieSeeder::class,
-        ]);
-
-
-        /*User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
         ]);*/
+
+
+        User::factory()->create([
+            'name' => 'Rodrigo Medrano',
+            'email' => 'rodrigo.mespa.123@gmail.com',
+        ]);
     }
 }
