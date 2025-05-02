@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
+            $table->string('var1',10)->nullable()->unique();
+            $table->text('var2');
+            $table->unsignedInteger('var3');
+            $table->decimal('var4', 8, 2);
+            $table->date('var5');
+            $table->timestamp('var6');
+            $table->json('var7');
+            /*$table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');*/
+            $table->foreignId('category_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Genre;
+use App\Models\Movie;
 use App\Models\Product;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -15,11 +17,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
-
+        //User::factory(10)->create();
         $this->call([
             CategorySeeder::class,
             ProductSeeder::class,
+            //GenreSeeder::class,
+            //MovieSeeder::class,
         ]);
 
 

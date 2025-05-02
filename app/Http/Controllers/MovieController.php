@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class MovieController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $search=$request->input('search');
-        $products =Product::where('name','like','%'.$search.'%')->paginate(10);
-        return view('products.index',compact('products'));
+        $movies=Movie::orderBy('release_date', 'desc')->get();
+        return view('movies.index', ['movies'=>$movies]);
     }
 
     /**

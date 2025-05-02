@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProductController;
 use App\Models\Category;
 use App\Models\Product;
@@ -9,7 +10,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('event',function(){
+    return view('event.index');
+});
 Route::get('/uno',function(){
     return 'Hola Mundo';
 });
@@ -31,8 +34,6 @@ Route::prefix('admin')->group(function(){
         return 'Opción 2';
     });
 });
-
-
 
 Route::prefix('ejercicios')->group(function(){
     Route::get('1',function(){
@@ -104,4 +105,5 @@ Route::prefix('ejercicios')->group(function(){
 });
 
 Route::resource('categories',CategoryController::class);
-
+Route::resource('movies',MovieController::class);
+Route::resource('products',ProductController::class);

@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $search=$request->input('search');
-        $products =Product::where('name','like','%'.$search.'%')->paginate(10);
-        return view('products.index',compact('products'));
+        $categorias=Category::withCount('products')->orderBy('products_count','desc')->get();
+        return view('category.index',compact('categorias'));
     }
 
     /**
