@@ -9,6 +9,8 @@
         @endif
         <h1>Lista de Productos</h1>
         <a href="{{route('products.create')}}" class="btn btn-primary">Crear Producto</a>
+        <a href="{{route('products.pdf')}}" class="btn btn-primary">Descargar PDF</a>
+        <a href="{{route('products.excel')}}" class="btn btn-primary">Descargar Excel</a>
         <div class="row">
             <div class="col-8">
                 <form action="{{ route('products.index') }}" method="GET">

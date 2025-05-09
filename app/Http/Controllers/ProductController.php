@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ProductsExport;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
 {
@@ -111,5 +114,14 @@ class ProductController extends Controller
         }
         $product->delete();
         return redirect()->route('products.index')->with('success', 'Producto eliminado correctamente');
+    }
+
+    public function pdf(){
+        $products = Product::all();
+        $pdf = Pdf::loadView('products.pdf', compact('products'));
+        return $pdf->download('productos.pdf');
+    }
+    public function excel(){
+        return Excel::download(new ProductsExport,'productos.xlsx');
     }
 }

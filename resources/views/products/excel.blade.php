@@ -1,0 +1,20 @@
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Categoria</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($products as $product)
+        <tr>
+            <td>{{$product->name}}</td>
+            <td>{{$product->stock}}</td>
+            <td>{{$product->price}}</td>
+            <td>{{$product->category->name}}</td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
