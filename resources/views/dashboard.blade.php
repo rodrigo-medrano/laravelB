@@ -14,4 +14,10 @@
             </div>
         </div>
     </div>
+
+    <div>
+    @livewireScripts
+    @livewireStyles
+    @livewire('contador-component')
+    </div>
 </x-app-layout>

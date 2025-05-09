@@ -1,0 +1,10 @@
+<html>
+<head>
+    <title>Pruebas</title>
+</head>
+<body>
+    @livewireScripts
+    @livewireStyles
+    @livewire('contador-component')
+</body>
+</html>
